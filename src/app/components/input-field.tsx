@@ -3,9 +3,9 @@
 import { Field } from 'formik';
 import React from 'react';
 
-export interface IInputFieldProps {
+export interface IInputFieldProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  id?: string;
 }
 
 export default function InputField({ label, id, ...rest }: IInputFieldProps) {
