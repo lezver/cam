@@ -7,7 +7,8 @@ export interface IPageProps {}
 export default function Page({}: IPageProps) {
   return (
     <>
-      <Header>Dashboard</Header>
+      <Header>Dashboard / Total Active Companies</Header>
+      <p>Some additional info</p>
     </>
   );
 }
