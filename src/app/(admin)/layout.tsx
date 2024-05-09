@@ -6,7 +6,6 @@ export interface ILayoutProps {
 }
 
 export default function Layout({ children }: ILayoutProps) {
-  console.log('rendering...');
   return (
     <>
       <Sidebar />
