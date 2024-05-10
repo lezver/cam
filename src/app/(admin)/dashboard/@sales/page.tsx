@@ -1,34 +1,17 @@
-import DashboardCard from '@/app/components/dashboard-card';
-import MagicButton from '@/app/components/magic-button';
-import SummaryTable from '@/app/components/summary-table';
-import SummaryTableCell from '@/app/components/summary-table-cell';
-import SummaryTableHeader from '@/app/components/summary-table-header';
-import { getSummarySales } from '@/lib/api';
 import React from 'react';
+import { getSummarySales } from '@/lib/api';
+import SummaryTable from '@/app/components/summary-table';
+import SummaryTableHeader from '@/app/components/summary-table-header';
+import SummaryTableCell from '@/app/components/summary-table-cell';
+import DashboardCard from '@/app/components/dashboard-card';
 
-export interface IPageProps {}
+export interface PageProps {}
 
-type dataType = {
-  companyId: number;
-  companyTitle: string;
-  sold: number;
-  income: number;
-};
-
-export default async function Page({}: IPageProps) {
-  const data: dataType[] = await new Promise(res =>
-    setTimeout(() => res(getSummarySales()), 3333)
-  );
+export default async function Page({}: PageProps) {
+  const data = await getSummarySales();
 
   return (
-    <DashboardCard
-      label={
-        <>
-          Sales details
-          <MagicButton />
-        </>
-      }
-    >
+    <DashboardCard label="Sales details">
       <SummaryTable
         headers={
           <>
