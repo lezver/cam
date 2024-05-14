@@ -1,6 +1,7 @@
 import React from 'react';
 import './globals.css';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import Provider from './components/provider';
 
 const font = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
@@ -11,7 +12,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }
