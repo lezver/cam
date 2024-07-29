@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface ILayoutProps {
+export interface LayoutProps {
   children: React.ReactNode;
   stats: React.ReactNode;
   sales: React.ReactNode;
@@ -16,7 +16,7 @@ export default function Layout({
   categories,
   countries,
   promotions,
-}: ILayoutProps) {
+}: LayoutProps) {
   return (
     <div>
       {children}

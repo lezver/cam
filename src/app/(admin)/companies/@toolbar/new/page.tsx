@@ -1,7 +1,7 @@
 import React from 'react';
 
-export interface IPageProps {}
+export interface PageProps {}
 
-export default function Page({}: IPageProps) {
+export default function Page({}: PageProps) {
   return null;
 }

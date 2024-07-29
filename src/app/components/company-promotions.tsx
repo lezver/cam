@@ -1,16 +1,17 @@
 'use client';
 
-import { getPromotions } from '@/lib/api';
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import Promotion from './promotion';
+import { getPromotions } from '@/lib/api';
+import Promotion from '@/app/components/promotion';
 
-export interface ICompanyPromotionsProps {
+export interface CompanyPromotionsProps {
   companyId: string;
 }
 
 export default function CompanyPromotions({
   companyId,
-}: ICompanyPromotionsProps) {
+}: CompanyPromotionsProps) {
   const { data } = useQuery({
     queryKey: ['promotions', companyId],
     queryFn: () => getPromotions({ companyId }),
@@ -19,8 +20,8 @@ export default function CompanyPromotions({
 
   return (
     <div className="grid grid-cols-12 gap-5">
-      {data?.map(promotion => (
-        <div key={promotion.id}>
+      {data?.map((promotion) => (
+        <div key={promotion.id} className="col-span-4">
           <Promotion promotion={promotion} />
         </div>
       ))}

@@ -7,13 +7,13 @@ export enum StatCardType {
   Gradient = 'gradient',
 }
 
-export interface IStatCardProps {
+export interface StatCardProps {
   type: StatCardType;
   label: string;
   counter: number;
 }
 
-export default function StatCard({ type, label, counter }: IStatCardProps) {
+export default function StatCard({ type, label, counter }: StatCardProps) {
   return (
     <div
       className={clsx(
@@ -23,7 +23,7 @@ export default function StatCard({ type, label, counter }: IStatCardProps) {
         type === StatCardType.Gradient && [
           styles.gradient,
           'p-7 bg-purple-200 text-gray-900 text-left',
-        ]
+        ],
       )}
     >
       <p
@@ -32,7 +32,7 @@ export default function StatCard({ type, label, counter }: IStatCardProps) {
           type === StatCardType.Dark &&
             'text-sm mb-1 text-zinc-50 before:block before:mb-2 before:bg-zinc-50',
           type === StatCardType.Gradient &&
-            'text-xs mb-5 before:inline-block before:mr-2 before:align-middle before:bg-gray-900'
+            'text-xs mb-5 before:inline-block before:mr-2 before:align-middle before:bg-gray-900',
         )}
       >
         {label}

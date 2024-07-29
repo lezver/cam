@@ -1,22 +1,15 @@
 'use client';
 
-import Link from 'next/link';
 import React from 'react';
 
-export interface IGlobalErrorProps {}
+export interface GlobalErrorProps {}
 
-export default function GlobalErrorProps({}: IGlobalErrorProps) {
+export default function GlobalError({}: GlobalErrorProps) {
   return (
     <html>
       <body>
         <div>
-          <p>Sometiong globally went wrong</p>
-          <Link
-            href="/"
-            className="py-2.5 px-5 bg-gray-900 text-zinc-50 text-base text-center font-medium rounded m-2 block w-fit"
-          >
-            Back to Home
-          </Link>
+          <p>Something globally went wrong</p>
         </div>
       </body>
     </html>

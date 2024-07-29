@@ -1,16 +1,16 @@
 'use client';
 
-import { getCompany } from '@/lib/api';
-import { useQuery } from '@tanstack/react-query';
-import Image from 'next/image';
 import React from 'react';
-import StatusLabel from './status-label';
+import Image from 'next/image';
+import { useQuery } from '@tanstack/react-query';
+import { getCompany } from '@/lib/api';
+import StatusLabel from '@/app/components/status-label';
 
-export interface ICompanyInfoProps {
+export interface CompanyInfoProps {
   companyId: string;
 }
 
-export default function CompanyInfo({ companyId }: ICompanyInfoProps) {
+export default function CompanyInfo({ companyId }: CompanyInfoProps) {
   const { data: company } = useQuery({
     queryKey: ['companies', companyId],
     queryFn: () => getCompany(companyId),
@@ -20,7 +20,7 @@ export default function CompanyInfo({ companyId }: ICompanyInfoProps) {
   if (!company) return null;
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex flex-col items-center p-7 dap-5 bg-gray-900 rounded">
+      <div className="flex flex-col items-center p-7 gap-5 bg-gray-900 rounded">
         <div className="w-20 h-20 rounded-full bg-blue-500">
           {company.avatar && (
             <Image fill src={company.avatar} alt="company avatar" />
@@ -33,7 +33,9 @@ export default function CompanyInfo({ companyId }: ICompanyInfoProps) {
         <p className="pb-5 text-xl font-semibold">About company</p>
         <p className="pb-3">{`Category: ${company.categoryTitle}`}</p>
         <p className="pb-3">{`Country: ${company.countryTitle}`}</p>
-        <p className="pb-3">{`Joined date: ${new Date(company.joinedDate).toLocaleDateString('uk')}`}</p>
+        <p className="pb-3">{`Joined date: ${new Date(
+          company.joinedDate,
+        ).toLocaleDateString('uk')}`}</p>
         <div className="w-full h-px my-8 bg-gray-300" />
         <p>{company.description}</p>
       </div>

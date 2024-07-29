@@ -2,16 +2,19 @@
 
 import React from 'react';
 import Image from 'next/image';
-import SidebarItem from './sidebar-item';
+import SidebarItem from '@/app/components/sidebar-item';
 import { usePathname, useRouter } from 'next/navigation';
 
-export interface ISidebar {}
+export interface SidebarProps {}
 
-export default function Sidebar({}: ISidebar) {
+export default function Sidebar({}: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleExitClick = (): void => router.push('/');
+  const handleExitClick = () => {
+    router.push('/');
+  };
+
   return (
     <aside className="fixed top-0 left-0 z-40 w-60 h-screen">
       <div className="flex flex-col h-full overflow-y-auto bg-gray-900">
@@ -21,7 +24,6 @@ export default function Sidebar({}: ISidebar) {
           height={25}
           src="/icons/logo.svg"
           alt="logo"
-          priority={true}
         />
         <ul className="space-y-7">
           <SidebarItem
@@ -43,7 +45,6 @@ export default function Sidebar({}: ISidebar) {
         </ul>
         <button
           className="flex items-center gap-2 p-6 mt-auto mx-auto"
-          type="button"
           onClick={handleExitClick}
         >
           <Image

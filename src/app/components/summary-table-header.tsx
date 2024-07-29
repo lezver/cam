@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 
-export interface ISummaryTableHeaderProps {
+export interface SummaryTableHeaderProps {
   align?: 'left' | 'center' | 'right';
   children: React.ReactNode;
 }
@@ -9,7 +9,7 @@ export interface ISummaryTableHeaderProps {
 export default function SummaryTableHeader({
   align = 'left',
   children,
-}: ISummaryTableHeaderProps) {
+}: SummaryTableHeaderProps) {
   return (
     <th
       className={clsx(
@@ -17,7 +17,7 @@ export default function SummaryTableHeader({
         `text-${align}`,
         '[&:nth-child(3n+1)]:text-white [&:nth-child(3n+1)]:bg-gray-900',
         '[&:nth-child(3n+2)]:text-gray-900 [&:nth-child(3n+2)]:bg-purple-200',
-        '[&:nth-child(3n+3)]:text-gray-900 [&:nth-child(3n+3)]:bg-lime-200'
+        '[&:nth-child(3n+3)]:text-gray-900 [&:nth-child(3n+3)]:bg-lime-200',
       )}
     >
       {children}

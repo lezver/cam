@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-export interface ISearchInputProps
+export interface SearchInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   onSearchClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -9,7 +9,7 @@ export interface ISearchInputProps
 export default function SearchInput({
   onSearchClick,
   ...rest
-}: ISearchInputProps) {
+}: SearchInputProps) {
   return (
     <div className="relative w-96">
       <input
@@ -19,7 +19,7 @@ export default function SearchInput({
       />
       <button
         type="button"
-        className="absolute top-0 rigth-0 p-3"
+        className="absolute top-0	right-0 p-3"
         onClick={onSearchClick}
       >
         <Image

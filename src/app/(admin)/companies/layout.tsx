@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface ILayoutProps {
+export interface LayoutProps {
   children: React.ReactNode;
   header: React.ReactNode;
   toolbar: React.ReactNode;
@@ -12,7 +12,7 @@ export default function Layout({
   header,
   toolbar,
   modal,
-}: ILayoutProps) {
+}: LayoutProps) {
   return (
     <>
       {modal}
